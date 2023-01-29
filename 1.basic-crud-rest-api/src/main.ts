@@ -1,8 +1,9 @@
 import express, { Request, Response } from 'express';
+import { basicAuth } from './middlewares/basicAuth';
 
 const app = express();
 app.use(express.json());
-
+app.use(basicAuth);
 app.get('/', (req: Request, res: Response) => {
   res.send('hi');
 });
